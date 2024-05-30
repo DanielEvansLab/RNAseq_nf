@@ -47,6 +47,17 @@ nextflow run nf-core/rnaseq -profile test,singularity --outdir ~/myoutput
 
 ```
 
+## Create samplesheet
+
+run samplesheet.Rmd
+
+Do this for each batch separately
+
+## Run NF
+
+nf_code_index.txt
+
+nf_code_process.txt
 
 
 

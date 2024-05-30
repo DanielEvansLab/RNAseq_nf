@@ -1,0 +1,20 @@
+#Code I ran on pdev1 as a background job. I should also try submitting it as a job. A job would run on a compute node, but I don't know if they are connected to the internet. Might be a problem to fetch tools.
+
+module load openjdk
+
+nextflow run nf-core/rnaseq \
+--input samplesheet.csv \
+--outdir output \
+--fasta ~/bigdata/SOMMA/baseline/RNAseq/data/aux_files/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz \
+--gtf ~/bigdata/SOMMA/baseline/RNAseq/data/aux_files/Homo_sapiens.GRCh38.111.gtf.gz \
+--save_reference \
+--igenomes_ignore \
+--genome null \
+-bg \
+-profile singularity > sandbox.log
+
+# I got this warning. I think it's ok, but I can specify an environment variable to avoid this in the future. 
+WARN: Singularity cache directory has not been defined -- Remote image will be stored in the path: /wynton/protected/group/evans/SOMMA/baseline/RNAseq/nf/batch7/work/singularity -- Use the environment variable NXF_SINGULARITY_CACHEDIR to specify a different location
+Pulling Singularity image https://depot.galaxyproject.org/singularity/fq:0.9.1--h9ee0642_0 [cache /wynton/protected/group/evans/SOMMA/baseline/RNAseq/nf/batch7/work/singularity/depot.galaxyproject.org-singularity-fq-0.9.1--h9ee0642_0.img]
+
+
