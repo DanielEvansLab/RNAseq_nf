@@ -35,7 +35,17 @@ printf 'process.executor = "sge"\nprocess.penv = "smp"\nprocess.clusterOptions =
 nextflow run nf-core/rnaseq -profile test,singularity --outdir ~/myoutput
 
 
+## Directory structure
 
+```
+|-RNAseq_nf
+|-data
+|  |-aux_files
+|  |-fastq
+|    |-batch1
+
+
+```
 
 
 
