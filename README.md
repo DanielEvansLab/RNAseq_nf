@@ -43,7 +43,11 @@ nextflow run nf-core/rnaseq -profile test,singularity --outdir ~/myoutput
 |  |-aux_files
 |  |-fastq
 |    |-batch1
-
+|    |-batch7
+|-nf
+|  |-save_refgenome
+|  |-batch7_index
+|  |-batch7
 
 ```
 
