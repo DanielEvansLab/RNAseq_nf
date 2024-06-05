@@ -6,9 +6,9 @@
 latest_release=$(curl -s 'http://rest.ensembl.org/info/software?content-type=application/json' | grep -o '"release":[0-9]*' | cut -d: -f2)
 
 echo $latest_release #112
-#Downloaded Ensembl release 112 of human genome GRCh38.p14
+#Downloaded Ensembl release 112 of human genome GRCh38.p14 and gtf
 
-cd data/aux_files/
+cd ../data/aux_files/
 
 wget -L ftp://ftp.ensembl.org/pub/release-${latest_release}/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz
 
