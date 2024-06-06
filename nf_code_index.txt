@@ -4,15 +4,16 @@ module load openjdk
 
 nextflow run nf-core/rnaseq \
 --input ../nf/batch7_index/samplesheet.csv \
---outdir ../nf/batch7_index \
+--outdir ../nf/batch7_index/output \
 --fasta ../data/aux_files/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz \
 --gtf ../data/aux_files/Homo_sapiens.GRCh38.112.gtf.gz \
 --save_reference \
 --igenomes_ignore \
 --genome null \
+--max_cpus 6 \
 -w ../nf/batch7_index
 -bg \
--profile singularity > ../nf/batch7_index/sandbox.log
+-profile singularity > ../nf/batch7_index/batch7_index.log
 
 # I got this warning. I think it's ok, but I can specify an environment variable to avoid this in the future. 
 WARN: Singularity cache directory has not been defined -- Remote image will be stored in the path: /wynton/protected/group/evans/SOMMA/baseline/RNAseq/nf/batch7/work/singularity -- Use the environment variable NXF_SINGULARITY_CACHEDIR to specify a different location
