@@ -53,7 +53,7 @@ nextflow run nf-core/rnaseq -profile test,singularity --outdir ~/myoutput
 
 ## Create samplesheet
 
-run samplesheet.Rmd
+run samp_sheet.R
 
 Do this for each batch separately
 
