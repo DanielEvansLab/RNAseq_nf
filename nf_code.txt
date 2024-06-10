@@ -1,0 +1,21 @@
+#Run from dev node to allow module loading and internet access.
+#Computer running NF needs internet access to etch various tools and submit jobs to compute nodes. Compute nodes do not require internet access. 
+#Navigate to directory you want to launch NF from. Locations of samplesheet, output dir, and work dir relative to your launch dir. 
+
+module load openjdk
+
+nextflow run nf-core/rnaseq \
+--input samplesheet.csv \
+--outdir output \
+--fasta ~/bigdata/SOMMA/baseline/RNAseq/data/aux_files/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz \
+--gtf ~/bigdata/SOMMA/baseline/RNAseq/data/aux_files/Homo_sapiens.GRCh38.112.gtf.gz \
+--star_index ~/bigdata/SOMMA/baseline/RNAseq/nf/save_refgenome/star/ \
+--igenomes_ignore \
+--max_cpus 6 \
+--save_align_intermeds \
+-w work \
+-bg \
+-profile singularity > batch7_1half.log
+
+
+

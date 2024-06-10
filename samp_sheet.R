@@ -2,7 +2,7 @@
 
 dir_base <- "~/bigdata/SOMMA/baseline/RNAseq/"
 dir_in <- "data/fastq/batch7"   #do not include trailing slash
-dir_out <- "nf/batch7_index/" 
+dir_out <- "nf/batch7_1half/" 
 
 
 library(tidyverse)
@@ -102,7 +102,8 @@ samp_sheet_out %>%
   select(sample = sample.x, sampleID, GB_read1 = filesize_GB.x, GB_read2 = filesize_GB.y)
 
 samp_sheet_nf <- samp_sheet_out %>%
-  filter(sampleID %in% myIDsmall) %>%
+  slice_head(prop = 0.5) %>%
+  #filter(sampleID %in% myIDsmall) %>%
   select(sample = sampleID, fastq_1, fastq_2, strandedness) %>%
   arrange(sample)
 
